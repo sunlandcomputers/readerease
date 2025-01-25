@@ -1,0 +1,725 @@
+/*
+Theme Name:  Readerease
+Theme URI:   https://classicpress-themes/
+Author:      Tradesouthwest
+Author URI:  https://tradesouthwest.com/
+Description: Readerease is a Reader friendly theme. Options include content padding; background-color; custom header text and link; link color; text alignment; Demo at https://leadspilot.com/classicpress/
+Requires PHP: 7.4
+Requires CP:  1.4
+Version:     1.0.0
+License:     GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags:        one-column, custom-background, custom-colors, custom-header, custom-menu, editor-style, featured-images, flexible-header,sticky-post, threaded-comments, translation-ready, blog
+Text Domain: readerease
+
+This theme, like ClassicPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+*/
+
+/* === CSS Index ===
+ * I - Resets 
+ * II - Theme  Mobile first 
+ * III - Theme screen sizes
+ * IV - WP Requiires
+ * V -Navigation
+ */
+ /* ------------------------------------------- I ----------------- */
+ html {
+	-moz-text-size-adjust: none;
+	-webkit-text-size-adjust: none;
+	text-size-adjust: none;
+	box-sizing: border-box;
+}
+
+/* * {
+        word-wrap: break-word;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    } */
+/* setting font size controls math when calculating ems */
+body {
+	font-size: 15px;
+	line-height: 1.5;
+	-webkit-font-smoothing: antialiased;
+	overflow-x: hidden;
+	margin: 0 0 0 0;
+	font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+}
+
+/* Gives HTML5 `block` elements padding */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+	box-sizing: inherit;
+}
+
+/* ...but watch depth of explicit containers in layers */
+
+/* Remove default margin in favour of better control in authored CSS */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+	margin-block-end: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed  */
+ul[role='list'],
+ol[role='list'] {
+	list-style: none
+}
+
+/*  notably iOS devices limit the canvas size to only 4,096 x 4,096 pixels. */
+img,
+picture,
+video,
+canvas,
+svg {
+	max-width: 100%;
+	min-height: fit-content;
+}
+
+input,
+button,
+textarea,
+select {
+	font: inherit;
+}
+
+/* Correct the inability to style clickable types in iOS and Safari. */
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+	-webkit-appearance: button;
+	appearance: button;
+	cursor: pointer;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	overflow-wrap: break-word;
+	word-wrap: break-word;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin-top: calc(.5em + 0.5rem);
+	margin-bottom: calc(.5em + 0.125rem);
+}
+
+p {
+	line-height: calc(1em + 0.528rem);
+}
+
+/* Balance text wrapping on headings */
+h1,
+h2,
+h3,
+h4 {
+	text-wrap: balance;
+
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+	text-decoration-skip-ink: auto;
+	color: currentColor;
+}
+
+/* Make sure textareas without a rows attribute are not tiny */
+textarea:not([rows]) {
+	min-height: 6em;
+}
+
+/* End "CSS Restart"
+     --------------------------------------- */
+
+.screen-reader-text {
+	clip: rect(1px, 1px, 1px, 1px);
+	height: 1px;
+	overflow: hidden;
+	position: absolute !important;
+	width: 1px;
+	word-wrap: normal !important;
+}
+
+/* must have higher specificity than alternative color schemes inline styles */
+.skip-link {
+	background-color: #f1f1f1;
+	box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.2);
+	color: #21759b;
+	display: block;
+	font-family: inherit;
+	font-size: 14px;
+	font-weight: 700;
+	left: -9999em;
+	outline: none;
+	padding: 15px 23px 14px;
+	text-decoration: none;
+	text-transform: none;
+	top: -9999em;
+}
+
+.logged-in .skip-link {
+	box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.2);
+	font-family: "Open Sans", sans-serif;
+}
+
+.skip-link:focus {
+	clip: auto;
+	height: auto;
+	left: 6px;
+	top: 7px;
+	width: auto;
+	z-index: 100000;
+}
+
+a:active,
+a:hover {
+	outline: 0;
+}
+
+/* ----------------------------- Theme  Mobile first II ---------------- */
+
+.inner-btn-anchor {
+	box-sizing: inherit;
+	padding: 0 .5em;
+}
+
+main {
+	padding-left: 2em;
+	padding-right: 2em;
+}
+
+.mrg-btsm {
+	margin-bottom: .5rem;
+	margin-top: .5rem;
+}
+
+.full-width {
+	display: flex;
+	width: 100%;
+	padding: 0 1em 1em 1em;
+}
+
+/* page theme */
+header.full-width,
+footer.full-width {
+	background: #eee;
+	color: inherit;
+
+}
+
+header.full-width h1,
+header.full-width h2 {
+	text-shadow: .05px .05px .25px #fffffa;
+}
+
+#main h1:first-of-type,
+#main h2:first-of-type {
+	margin-bottom: 2rem;
+	border-bottom: 1px solid #eee;
+}
+
+.light #main h1:first-of-type,
+.light #main h2:first-of-type {
+	border-color: #ccc;
+}
+
+
+.dos .sidewidget-tools {
+	display: flex;
+	top: -9px;
+}
+
+.dos .sidewidget-tools li {
+	margin: .5em auto;
+	display: initial;
+}
+
+.grid-page {
+	display: grid;
+	grid-template-columns: auto;
+	min-height: 75%;
+}
+
+.dos {
+	background: #3c3c3c;
+	max-height: 5em
+}
+
+.cinco {
+	display: none;
+}
+
+.uno {
+	display: none;
+}
+.inner-article-content {
+  padding-top: 2.67em;
+}
+/* ---------------------------------------- Theme screen sizes III --------- */
+
+@media screen and (min-width: 1078px) {
+
+	body {
+		box-sizing: inherit;
+		padding: 0 0;
+	}
+
+	.grid-page {
+		grid-template-columns: auto 5em auto auto auto
+	}
+
+	.uno {
+		display: initial;
+	}
+
+	.dos {
+		height: 100%;
+		padding: 1em .444em;
+		max-height: calc(100% - 2em);
+	}
+
+	.tres {
+		background: #2d2d2d;
+	}
+
+	.quatro {
+		background: #888;
+	}
+
+	.cinco {
+		display: initial;
+	}
+
+	.dos .sidewidget-tools {
+		flex-direction: column;
+		top: 2em;
+		left: 0;
+	}
+}
+
+/* dark mode */
+.inside-bar {
+	background: #3f3f3f;
+	color: white;
+	word-wrap: break-word;
+}
+
+main {
+	background: #2d2d2d;
+	color: #fcfcfc;
+}
+
+/* light mode */
+.light .inside-bar {
+	background: #fcfcfc;
+	color: #474747;
+}
+
+.light main {
+	background: #f9f9f9;
+	color: #363636;
+}
+
+.horizontal-sidewidget {
+	font-family: sans-serif;
+	width: 75%;
+	border: 1px solid transparent;
+	margin-left: auto;
+	margin-right: auto;
+	height: 220px;
+	margin-top: 1em;
+	margin-bottom: 100%;
+}
+
+.sidewidget-tools {
+	position: relative;
+	margin: 0;
+	padding: 0;
+	left: 2.76em;
+	top: 2em;
+}
+
+.sidewidget-tools li {
+	background: #4b4b4b;
+	margin: 0 0 0 -2.444em;
+	margin-bottom: .5em;
+	border: thin solid #ddd;
+	border-radius: 3px;
+	text-align: center;
+	padding: 1px;
+	width: 48px;
+	background: #3f3f3f;
+	color: white;
+}
+
+.sidewidget-tools li a {
+	text-decoration: none;
+	padding-left: 2px;
+	padding-right: 2px;
+} 
+
+
+/* ************************************************** WP Requiires IV  */  
+.alignleft {
+  display: flex;
+align-content: flex-start;
+  justify-content: space-between;    
+margin: 0.375em 1.75em 1.75em 0;
+}
+.alignright {
+  display: flex;
+align-content: flex-end;
+  justify-content: space-between;    
+margin: 0.375em 0 1.75em 1.75em;
+}
+.aligncenter {
+align-content: center;
+  justify-content: space-between;
+  text-align: center;
+}
+blockquote.alignleft {
+margin: 0.3157894737em 1.4736842105em 1.473684211em 0;
+}
+blockquote.alignright {
+margin: 0.3157894737em 0 1.473684211em 1.4736842105em;
+}
+blockquote.aligncenter {
+margin-bottom: 1.473684211em;
+}
+.widget {
+border-top: 2px solid transparent;
+margin-bottom: 3.5em;
+padding-top: 1em;
+}
+.widget.widget_search{
+  border-top: 0;
+}
+.widget-area > :last-child,
+.widget > :last-child {
+margin-bottom: 0;
+}
+/* Calendar widget */
+.widget.widget_calendar table {
+margin: 0;
+}
+.widget_calendar td,
+.widget_calendar th {
+line-height: 2.5625;
+padding: 0 4px;
+text-align: center;
+  border-left: 1px solid #ddd;
+  border-top: 1px solid #ddd;
+}
+.widget_calendar caption {
+font-weight: 900;
+margin-bottom: 1.75em;
+}
+.widget_calendar tbody a {
+background-color: #007acc;
+color: #fff;
+display: block;
+font-weight: 700;
+}
+.widget_calendar tbody a:hover,
+.widget_calendar tbody a:focus {
+background-color: #686868;
+color: #fff;
+}
+/* Tag Cloud widget */
+.tagcloud a {
+border: 1px solid #d1d1d1;
+border-radius: 2px;
+display: inline-block;
+font-family: Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans", "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", Tahoma, Geneva, "Helvetica Neue", Helvetica, Arial, sans-serif;
+line-height: 1;
+margin: 0 0.1875em 0.4375em 0;
+padding: 0.5625em 0.4375em 0.5em;
+}
+.tagcloud ul {
+list-style-type: none;
+margin-left: 0;
+}
+.tagcloud ul li {
+display: inline-block;
+}
+.tagcloud a:hover,
+.tagcloud a:focus {
+border-color: #007acc;
+color: #007acc;
+outline: 0;
+}
+.sticky-post {
+color: #686868;
+display: block;
+font-family: Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans", "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", Tahoma, Geneva, "Helvetica Neue", Helvetica, Arial, sans-serif;
+font-size: 13px;
+font-size: 0.8125rem;
+letter-spacing: 0.076923077em;
+line-height: 1.6153846154;
+margin-bottom: 0.5384615385em;
+text-transform: uppercase;
+}
+.comments-area {
+margin: 0 7.6923% 3.5em;
+}
+.comment-list + .comment-respond,
+.comment-navigation + .comment-respond {
+padding-top: 1.75em;
+}
+.comments-title,
+.comment-reply-title {
+border-top: 4px solid #1a1a1a;
+font-family: Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans", "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", Tahoma, Geneva, "Helvetica Neue", Helvetica, Arial, sans-serif;
+font-size: 23px;
+font-size: 1.4375rem;
+font-weight: 700;
+line-height: 1.3125;
+padding-top: 1.217391304em;
+}
+.comments-title {
+margin-bottom: 1.217391304em;
+}
+.comment-list {
+list-style: none;
+margin: 0;
+}
+.form-allowed-tags code {
+font-family: Inconsolata, monospace;
+}
+/* Make sure embeds and iframes fit their containers. */
+embed,
+iframe,
+object,
+video {
+margin-bottom: 1.75em;
+max-width: 100%;
+vertical-align: middle;
+}
+p > embed,
+p > iframe,
+p > object,
+p > video {
+margin-bottom: 0;
+}
+.wp-caption {
+margin-bottom: 1.75em;
+max-width: 100%;
+}
+.wp-caption img[class*="wp-image-"] {
+display: block;
+margin: 0;
+}
+.wp-caption .wp-caption-text {
+color: #686868;
+font-size: 13px;
+font-size: 0.8125rem;
+font-style: italic;
+line-height: 1.6154;
+padding: 0.5em;
+  margin: auto;
+}
+.wp-caption .wp-caption-text:before,
+.wp-caption .wp-caption-text:after{
+  clear: both;
+content: "";
+}
+.gallery-icon img {
+margin: 0 auto;
+}
+.gallery-caption {
+color: #686868;
+display: block;
+font-size: 13px;
+font-size: 0.8125rem;
+font-style: italic;
+line-height: 1.6154;
+padding-top: 0.5385em;
+}
+.gallery-columns-6 .gallery-caption,
+.gallery-columns-7 .gallery-caption,
+.gallery-columns-8 .gallery-caption,
+.gallery-columns-9 .gallery-caption {
+display: none;
+}
+/* ********************************************************* IV - Navigation Elements */
+.nav-container {
+  position: unset;
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  border-top: 2px solid #ddd;
+  padding-top: 1em;
+}
+.nav-container ul {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  justify-content: space-around;
+}
+.nav-container ul li {
+  list-style: none;
+  font-size: 1rem;
+  /*   background:  var(--bkg-dark); */
+}
+.nav-container li {
+  display: inherit;
+  position: relative;
+  padding: 0;
+  white-space: normal;
+
+}
+.nav-container ul li ul{
+  border-right: thin dashed #aaa;
+  border-bottom: thin dashed #aaa;
+  border-top: thin dashed #aaa;
+  margin-left: -1px;
+  margin-top: .222em;
+ 
+}
+.nav-container a {
+  padding: 5px 8px;
+  opacity: 1;
+  text-decoration: none;
+}
+.nav-container a:hover{
+ text-decoration: underline;
+}
+
+.page-nav-wrapper.is-open {
+  display: flex;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+/*
+@media (max-width: 1089.2px) {
+    .page-nav-wrapper {
+        display: none;
+    }
+}
+*/
+@media screen and (max-width: 1088.85px){
+.menu-toggle {
+  min-height: 60px;
+  min-width: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin: 0;
+  padding: 0;
+  background-color: #eee;
+  cursor: pointer;
+  border: none;
+  border-radius: 0;
+  outline: none;
+}
+.nav-container{
+  border: none;
+}
+}
+@media (min-width: 1090px) {
+  
+}
+@media all and (min-width: 1089px) {
+  .menu-toggle {
+    display: none;
+  }
+  .nav-container {
+      position: relative;
+      z-index: 99999;
+      border-bottom: 2px solid #ddd;
+      padding-top: 0;
+  }
+   .nav-container ul {
+       justify-content: space-around;
+       flex-direction: row;
+  }
+   .nav-container a {
+       padding: 10px 12px;
+       background: #f9f9f9; /*var(--navback);*/
+       border: thin solid transparent;
+       width: calc( 150px + 1.222vw );
+       min-height: 2.67em;
+       height: fit-content;
+       white-space: pre-line;
+       font-size: medium;
+  }
+   .nav-container li {
+       height: auto;
+  }
+   .nav-container ul li {
+       font-size: .825rem;
+  }
+   .nav-container ul li ul li a {
+       border-top: 1px dotted rgba(165,165,165,.76);
+       border-right: 1px solid rgba(165,165,165,.76);
+       border-bottom: 1px solid rgba(165,165,165,.76);
+       border-left: 1px solid rgba(165,165,165,.76);
+       font-size: .9rem;
+  }
+   .nav-container ul li ul ul {
+       z-index: 99990;
+       top: calc( 1em + 16px );
+       margin-left: calc( 3em + 24px );
+  }
+   .nav-container ul li ul {
+       position: absolute;
+       justify-content: space-around;
+       margin-left: 0;
+       top: calc( 1.75em + .825rem );
+       z-index: 99800;
+       background: none;
+       border: none;
+       flex-direction: column;
+       visibility: hidden;
+       opacity: 0;
+       transition: visibility 0s linear 400ms, opacity 400ms;
+  }
+   .nav-container ul li:hover ul, .nav-container ul li:focus ul, .nav-container ul li:focus-within ul {
+       visibility: visible;
+       opacity: 1;
+       transition: visibility 0s linear 0s, opacity 400ms;
+  }
+   .nav-container ul li ul li li {
+       visibility: hidden;
+       opacity: 0;
+       transition: visibility 0s linear 400ms, opacity 400ms;
+       margin-left: 3em;
+  }
+   .nav-container ul li ul li:hover li, .nav-container ul li ul li:focus li, .nav-container ul li ul li:focus-within li {
+       visibility: visible;
+       opacity: 1;
+       transition: visibility 0s linear 0s, opacity 400ms;
+  }
+
+}
