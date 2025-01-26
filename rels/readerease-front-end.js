@@ -78,3 +78,30 @@
     //bodyScrollLock.enableBodyScroll(document.body);
   });
 })();
+
+
+(function() {
+  'use strict';
+document.addEventListener('DOMContentLoaded', () => {
+  const increaseFontSizeButton = document.getElementById('increase-font-size');
+
+  increaseFontSizeButton.addEventListener('click', () => {
+    const xhr = new XMLHttpRequest();
+    xhr.open('POST', ajaxurl, true); 
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+    xhr.onload = function() {
+      if (xhr.status === 200) {
+        const contentContainers = document.querySelectorAll('.content-container');
+        contentContainers.forEach(container => {
+          container.style.fontSize = '1.25em';
+        });
+      }
+    };
+
+    const data = new URLSearchParams();
+    data.append('action', 'change_font_size'); 
+    xhr.send(data);
+  });
+});
+})();
