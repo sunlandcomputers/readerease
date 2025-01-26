@@ -202,7 +202,13 @@ a:active,
 a:hover {
 	outline: 0;
 }
-
+:root {
+	--font-serifs: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+	--color-primary-x-light: #fafafa;
+	--clr-lite: #ffffff;
+	--bkg-dark: #2d2d2d;
+	--navback: #fafafa;
+}
 /* ----------------------------- Theme  Mobile first II ---------------- */
 
 .inner-btn-anchor {
@@ -670,27 +676,26 @@ display: none;
        flex-direction: row;
   }
    .nav-container a {
-       padding: 10px 12px;
-       background: #f9f9f9; /*var(--navback);*/
+       padding: 10px 12px 0;
+       background: var(--navback);
        border: thin solid transparent;
-       width: calc( 150px + 1.222vw );
+       min-width: calc( 150px + 1.222vw );
        min-height: 2.67em;
        height: fit-content;
-       white-space: pre-line;
-       font-size: medium;
   }
    .nav-container li {
        height: auto;
   }
    .nav-container ul li {
-       font-size: .825rem;
+       font-size: 1em;
+	   text-align: center;
   }
    .nav-container ul li ul li a {
        border-top: 1px dotted rgba(165,165,165,.76);
        border-right: 1px solid rgba(165,165,165,.76);
        border-bottom: 1px solid rgba(165,165,165,.76);
        border-left: 1px solid rgba(165,165,165,.76);
-       font-size: .9rem;
+       font-size: .938em;
   }
    .nav-container ul li ul ul {
        z-index: 99990;
