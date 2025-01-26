@@ -1,4 +1,4 @@
-<div class="readerease-row">
+
     <div class="nav-container">
     <button
           id="nav_button" 
@@ -33,4 +33,4 @@
                     ); ?>
                     </div>
     </div>
-</div> 
+

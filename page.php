@@ -1,6 +1,6 @@
   <?php
 /**
- * The main template file
+ * The pages template file
  *
  * This is the most generic template file in a WordPress theme
  * and one of the two required files for a theme (the other being style.css).
@@ -18,13 +18,13 @@ get_header(); ?>
 <div class="grid-page">
 
     <section class="uno grid-item">
-       intentionally blank
+       <!--intentionally blank-->
     </section>
 
         <section class="inside-bar dos grid-item">
             <div class="horizontal-sidewidget">
                 <ul class="sidewidget-tools" role="list">
-                  <li><span><a href="#top" title="#top">+</a></span></li>
+                  <li><span><button id="increase-font-size" title="+/- font">+</button></span></li>
                     <li><span><a href="#top" title="#top">Aa</a></span></li>
                     <li><span><a href="#top" title="#top">W Cnt</a></span></li>
                     <li><span><a href="#top" title="#top">D/L</a></span></li></ul>
@@ -40,10 +40,9 @@ get_header(); ?>
                 </section>
                 
                     <section class="cinco grid-item">
-                      intentionally blank
+                      <!--intentionally blank-->
                     </section>
 
 </div>
-
 
 <?php get_footer(); ?>
