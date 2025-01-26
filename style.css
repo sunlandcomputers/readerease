@@ -279,8 +279,13 @@ header.full-width h2 {
 .uno {
 	display: none;
 }
+
+.quatro{
+	padding-left: 1em;
+    padding-right: 1em;
+}
 .inner-article-content {
-  padding-top: 2.67em;
+    padding-top: 1.75em;
 }
 /* ---------------------------------------- Theme screen sizes III --------- */
 
@@ -613,6 +618,7 @@ display: none;
   padding: 5px 8px;
   opacity: 1;
   text-decoration: none;
+  line-height: 2;
 }
 .nav-container a:hover{
  text-decoration: underline;
